@@ -1,9 +1,15 @@
 import React from 'react'
-
+import {BrowserRouter,Routes} from 'react-router-dom'
 export default function App() {
   return (
-   
-<h1 className='text-red-500'>Hello</h1>
+  
+<div>
+  <BrowserRouter>
+  <Routes>
+
+  </Routes>
+  </BrowserRouter>
+</div>
     
   )
 }
