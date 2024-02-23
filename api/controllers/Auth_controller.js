@@ -1,7 +1,8 @@
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
+import { errorHandler } from "../utils/error.js";
 
-export const signup = async (req, res) => {
+export const signup = async (req, res,next) => {
   
   //save detalis on mongo db
   const { username, email, password } = req.body;
@@ -13,6 +14,9 @@ export const signup = async (req, res) => {
     await newUser.save();
     res.status(201).json("user created succefully");
   } catch (error) {
-    res.status(500).json(error.message);
+    next(error) //this error handling comes from middle ware
   }
+  // catch (error) {
+  //   next(errorHandler(500,'Error from function')) //this is a custom made error.These arguments are passed to errorHandler function
+  // }
 };
