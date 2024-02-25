@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 export default function Signup() {
   const [formData, setFormData] = useState({});
-  const [error, setError] = useState({});
+  const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -82,6 +82,7 @@ export default function Signup() {
           <span className="text-blue-800">Sign in</span>
         </Link>
       </div>
-    </div>
+      {error && <p className="text-red-300 mt-3">{error.message}</p>}
+     </div>
   );
 }
