@@ -31,7 +31,7 @@ app.listen(3000, () => {
 // })
 
 app.use("/api/user/", UserRouter);
-app.use("/api/auth", authRouter);
+app.use("/api/auth/", authRouter);
 
 //middleware
 //req- datafrom browser, res-fromserver toclinet side next-go next middleware
